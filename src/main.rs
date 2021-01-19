@@ -39,8 +39,8 @@ fn main(){
     // SEE IF ANY RECTANGLES CAN FIT ANOTHER
     for rectangle in rectangles.iter() {
         println!("\n");
-        for other in rectangles.iter() {
-            if rectangle.name != other.name {
+        for other in rectangles.iter() { //COMPARE VECTOR OF RECTANGLES TO ITSELF
+            if rectangle.name != other.name { //IF RECTANGLE IS NOT COMPARING AGAINST ITSELF
                 if rectangle.can_hold(other) {
                     println!("{} can hold {}",rectangle.name,other.name)
                 } else {
