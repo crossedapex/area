@@ -36,15 +36,21 @@ fn main(){
     };
 
     let rectangles = vec![rect1,rect2,rect3];
-
     // SEE IF ANY RECTANGLES CAN FIT ANOTHER
-    println!("These rectangles are large enough to hold others:");
     for rectangle in rectangles.iter() {
+        println!("\n");
         for other in rectangles.iter() {
-            if rectangle.can_hold(other) {
-                println!("{} can hold {}",rectangle.name,other.name)
-            } 
+            if rectangle.name != other.name {
+                if rectangle.can_hold(other) {
+                    println!("{} can hold {}",rectangle.name,other.name)
+                } else {
+                    println!("{} cannot hold {}",rectangle.name,other.name)
+                }
+                if rectangle.area()>other.area() {
+                    println!("{} has a larger area than {}",rectangle.name,other.name)
+                }
 
             }
         }
     }
+}
